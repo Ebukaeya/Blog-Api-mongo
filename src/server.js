@@ -13,7 +13,7 @@ const dbURl = process.env.url
 
 /* ----------------------------------------error handlers------------------------------------------ */
 
-/* connect db  */
+/* connect db  */ /* sdewdejd */
 
 mongoose.connect(
   dbURl
