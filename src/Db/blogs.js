@@ -16,6 +16,7 @@ const blogsSchema = new Schema(
       avartar: { type: String, required: true },
     },
     content: { type: String, required: true },
+    comments: [{type: String,}]
   },
   { timestamps: true }
 );

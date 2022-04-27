@@ -33,16 +33,30 @@ blogRouter.get("/", async (req, res, next) => {
 
 blogRouter.put("/:id", async (req, res, next) => {
   try {
-      let blogToUpdate = await BlogModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    let blogToUpdate = await BlogModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
 
-     res.send(blogToUpdate)
+    res.send(blogToUpdate);
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
 });
 blogRouter.delete("/:id", async (req, res, next) => {
   try {
-  } catch (error) {}
+    let blogToDelete = await BlogModel.findByIdAndDelete(req.params.id, {
+      new: true,
+    });
+    if (blogToDelete) {
+      res.send(blogToDelete);
+    } else {
+      res.send("blog cant be found");
+    }
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 export default blogRouter;
