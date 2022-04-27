@@ -2,6 +2,7 @@ import express from "express";
 import listEndpoints from "express-list-endpoints";
 import cors from "cors";
 import mongoose from "mongoose";
+import blogRouter from "./services/blogRoute.js";
 
 const app = express();
 let port = process.env.port
@@ -9,8 +10,11 @@ const dbURl = process.env.url
 
 /* ---------------------------------------- middle wares--------------------------------------- */
 
-/* -----------------------------------------endpoints-------------------------------------------- */
+app.use(cors()) /* remember to call the cors() and express.json() */
+app.use(express.json())
 
+/* -----------------------------------------endpoints-------------------------------------------- */
+app.use("/blogs", blogRouter)
 /* ----------------------------------------error handlers------------------------------------------ */
 
 /* connect db  */ /* sdewdejd */
